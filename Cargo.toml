@@ -1,0 +1,22 @@
+[package]
+edition = "2021"
+name = "static_aabb2d_index_bench"
+version = "0.1.0"
+
+[features]
+# Enable unsafe optimizations in static_aabb2d_index
+unsafe_optimizations = ["static_aabb2d_index/unsafe_optimizations"]
+
+[dependencies]
+static_aabb2d_index = {version = "2.0", git = "https://github.com/jbuckmccready/static_aabb2d_index.git", branch = "master"}
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+harness = false
+name = "bench_static_aabb2d_index"
+
+[lib]
+# eliminate issues with criterion command line args, see: https://bheisler.github.io/criterion.rs/book/faq.html
+bench = false
